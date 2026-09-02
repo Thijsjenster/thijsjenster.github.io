@@ -1,19 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Thijs Jenster</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header><h1>Thijs Jenster</h1></header>
-  <main class="grid">
-    <a href="film.html">Film & Documentary</a>
-    <a href="eigen.html">Eigen Beheer</a>
-    <a href="other.html">Other Work</a>
-    <a href="about.html">About</a>
+  <header class="site-header">
+    <div class="inner">
+      <h1 class="brand">Thijs Jenster</h1>
+      <nav class="nav">
+        <a href="#nieuw">Nieuw</a>
+        <a href="#releases">Releases in Eigen Beheer</a>
+        <a href="#film">Film</a>
+        <a href="#overig">Overig</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="nieuw" class="section">
+      <h2>Nieuw</h2>
+      <div id="nieuw-list" class="list"></div>
+    </section>
+
+    <section id="releases" class="section">
+      <h2>Releases in Eigen Beheer</h2>
+      <div id="releases-list" class="cards"></div>
+    </section>
+
+    <section id="film" class="section">
+      <h2>Film</h2>
+      <div id="film-list" class="cards"></div>
+    </section>
+
+    <section id="overig" class="section">
+      <h2>Overig</h2>
+      <div id="overig-list" class="cards"></div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <h2>Contact</h2>
+      <div id="contact-info"></div>
+    </section>
   </main>
-  <footer><a href="#">Contact</a></footer>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <small>© <span id="year"></span> Thijs Jenster</small>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
