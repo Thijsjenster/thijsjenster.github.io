@@ -1,39 +1,47 @@
-body {
-  background-color: white;
-  font-family: "Times New Roman", serif;
-  font-size: 12px;
-  margin: 0;
-  padding: 0;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+/* style.css — Minimal Times New Roman layout and responsive hero */
+:root{
+  --accent:#111;
+  --max-width:1100px;
 }
-header, footer {
-  text-align: center;
-  padding: 1em;
+*{box-sizing:border-box}
+html,body{height:100%;}
+body{
+  margin:0;
+  font-family: "Times New Roman", Times, serif;
+  color:#111;
+  background:#fff;
+  -webkit-font-smoothing:antialiased;
 }
-main {
-  text-align: center;
-  padding: 2em;
-  flex: 1;
-}
-main.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1em;
-  justify-items: center;
-  align-items: center;
-  padding: 2em;
-}
-a {
-  color: black;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-ul {
-  list-style: none;
-  padding: 0;
+.inner{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+.site-header{padding:20px 0}
+.brand{margin:0;font-size:18px;letter-spacing:1px;text-transform:none}
+.container{max-width:var(--max-width);margin:20px auto;padding:0 20px}
+.hero{display:flex;gap:30px;align-items:center;margin-bottom:30px}
+.hero-left{flex:1}
+.hero-left img{width:100%;height:auto;display:block;object-fit:cover;border-radius:6px}
+.hero-right{width:320px}
+.hero-nav{display:flex;flex-direction:column;gap:12px}
+.hero-nav a{color:var(--accent);text-decoration:none;font-size:20px}
+.section{margin:40px 0}
+.section h2{font-size:20px;margin:0 0 12px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{border:1px solid #eee;padding:12px;border-radius:6px}
+.card img{width:100%;height:auto;display:block;margin-bottom:8px}
+.list{display:flex;flex-direction:column;gap:18px}
+.item{display:flex;gap:12px;align-items:flex-start}
+.item .thumb{width:120px}
+.item .thumb img{width:120px;height:80px;object-fit:cover;border-radius:4px}
+.item .meta{flex:1}
+.item .meta h3{margin:0 0 6px;font-size:16px}
+.item .meta p{margin:0 0 8px;color:#444}
+.audio-row{display:flex;align-items:center;gap:8px}
+audio{width:100%}
+.site-footer{border-top:1px solid #eee;padding:18px 0;margin-top:40px}
+.contact p{margin:6px 0}
+@media (max-width:800px){
+  .hero{flex-direction:column}
+  .hero-right{width:100%}
+  .item{flex-direction:column}
+  .item .thumb{width:100%}
+  .item .thumb img{width:100%;height:auto}
 }
