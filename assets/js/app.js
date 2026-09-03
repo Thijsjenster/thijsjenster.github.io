@@ -1,4 +1,4 @@
-git checkout 799591c2e0a665b4f44b9a6fe0e329810c2824b0
+git reset --hard 799591c2e0a665b4f44b9a6fe0e329810c2824b0
 
 // assets/js/app.js — builds the Nieuw timeline from data/nieuw/nieuw.json and wires audio/video playback (thumbnail toggles inline play/pause)
 (function(){
