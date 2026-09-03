@@ -14,16 +14,32 @@ body{
 }
 .inner{max-width:var(--max-width);margin:0 auto;padding:0 20px}
 .site-header{padding:20px 0}
+.site-header .inner{display:flex;align-items:center;justify-content:space-between}
 .brand{margin:0;font-size:18px;letter-spacing:1px;text-transform:none}
+.brand a{color:inherit;text-decoration:none}
+.nav{display:flex;gap:18px;align-items:center}
+.nav a{color:#000;text-decoration:none}
 .container{max-width:var(--max-width);margin:20px auto;padding:0 20px}
+
+/* HOME hero-only layout */
+.home .hero{display:flex;gap:12px;align-items:center;margin-bottom:20px}
+.home .hero-left{flex:0 0 33%}
+.home .hero-left img{width:100%;height:auto;display:block;object-fit:cover;border-radius:6px}
+.home .hero-right{flex:0 0 auto;margin-left:6px}
+
+/* Make the nav links sit near the hero */
+.hero-nav{display:flex;flex-direction:column;gap:8px}
+.hero-nav a{color:#000;text-decoration:none;font-size:20px;padding:2px 0}
+
+/* Generic hero (fallback) */
 .hero{display:flex;gap:30px;align-items:center;margin-bottom:30px}
 .hero-left{flex:1}
 .hero-left img{width:50%;height:auto;display:block;object-fit:cover;border-radius:6px}
 .hero-right{width:320px}
-.hero-nav{display:flex;flex-direction:column;gap:12px}
-.hero-nav a{color:#000;text-decoration:none;font-size:20px}
+
 .hero-nav a:visited{color:#000}
 .left-link{color:#000}
+
 .section{margin:40px 0}
 .section h2{font-size:20px;margin:0 0 12px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
@@ -37,10 +53,21 @@ body{
 .item .meta h3{margin:0 0 6px;font-size:16px}
 .item .meta p{margin:0 0 8px;color:#444}
 .audio-row{display:flex;align-items:center;gap:8px}
+.audio-row video, .audio-row audio { max-width:480px; width:100%; height:auto; display:block; }
 audio{width:100%}
+
+/* Footer contact */
 .site-footer{border-top:1px solid #eee;padding:18px 0;margin-top:40px}
-.contact p{margin:6px 0}
+#contact-footer p{margin:6px 0}
+
+/* Hover italics for nav links */
+.nav a:hover, .hero-nav a:hover { font-style: italic; }
+
+/* Responsive */
 @media (max-width:800px){
+  .home .hero{flex-direction:column;gap:12px}
+  .home .hero-left{width:100%}
+  .home .hero-right{width:100%}
   .hero{flex-direction:column}
   .hero-right{width:50%}
   .item{flex-direction:column}
