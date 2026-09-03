@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "voorbeeld-album-2026",
+    "title": "Voorbeeld Album",
+    "year": "2026",
+    "image": "assets/images/voorbeeld-album-2026.jpg",
+    "tracklist": [
+      { "track": 1, "title": "Intro", "file": "assets/audio/voorbeeld-intro.mp3", "length": "1:12" },
+      { "track": 2, "title": "Nummer Twee", "file": "assets/audio/voorbeeld-2.mp3", "length": "3:05" }
+    ],
+    "credits": "Music & production by Thijs Jenster. Recorded at Studio X. Mastered by Y.",
+    "bandcamp": "https://eigenbeheer.bandcamp.com/album/voorbeeld-album"
+  },
+  {
+    "slug": "de-tuin",
+    "title": "De Tuin",
+    "year": "2024",
+    "image": "assets/images/de-tuin-cover.jpg",
+    "tracklist": [
+      { "track": 1, "title": "Oude Gewoonte", "length": "3:52" },
+      { "track": 2, "title": "Bobbie's Oudergesprek", "length": "4:01" },
+      { "track": 3, "title": "loze woorden", "length": "1:22" },
+      { "track": 4, "title": "Marco Polo", "length": "3:58" },
+      { "track": 5, "title": "woordeloos", "length": "1:01" },
+      { "track": 6, "title": "Doe Je Best", "length": "2:44" },
+      { "track": 7, "title": "woordeloos (weer)", "length": "1:28" }
+    ],
+    "credits": "joris jenster, thijs jenster"
+  }
+]
