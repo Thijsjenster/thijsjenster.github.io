@@ -17,18 +17,16 @@
     (function tryHero(i){ if(i>=candidates.length) return; var url=candidates[i]; var img=new Image(); img.onload=function(){ hero.src=url }; img.onerror=function(){ tryHero(i+1) }; img.src=url; })(0);
   }
 
-  // helper: normalize file path
   function normalizePath(file, kind){
     if(!file) return '';
     if(typeof file !== 'string') return '';
-    if(file.indexOf('assets/')===0 || file.indexOf('http')===0) return file; // already a path or absolute URL
+    if(file.indexOf('assets/')===0 || file.indexOf('http')===0) return file;
     if(kind === 'images') return 'assets/images/' + file;
     if(kind === 'audio') return 'assets/audio/' + file;
     if(kind === 'video') return 'assets/video/' + file;
     return file;
   }
 
-  // helpers for extension detection
   function extOf(file){
     if(!file) return '';
     var parts = file.split('.');
@@ -38,7 +36,7 @@
   function isAudioExt(ext){ return ['mp3','wav','ogg','m4a','aac'].indexOf(ext)!==-1; }
 
   var nieuwList = document.getElementById('nieuw-list');
-  if(!nieuwList) return; // nothing to do on pages without nieuws
+  if(!nieuwList) return;
 
   var dataUrls = ['data/nieuw/nieuw.json','data/nieuw/sample.json'];
   function fetchData(i){
@@ -55,7 +53,7 @@
     items.sort(function(a,b){
       var da = a.date ? new Date(a.date).getTime() : 0;
       var db = b.date ? new Date(b.date).getTime() : 0;
-      return db - da; // newest first
+      return db - da;
     });
 
     var currentMedia = null;
@@ -64,6 +62,67 @@
       var el = document.createElement('article'); el.className='item card';
 
       var thumb = document.createElement('div'); thumb.className='thumb';
+      var img = document.createElement('img'); img.alt = it.title || '';
+      img.src = normalizePath(it.image || '', 'images');
+
+      var btn = document.createElement('button'); btn.className='left-link';
+      btn.setAttribute('aria-label', it.title || 'Open item');
+      btn.style.border='none'; btn.style.background='transparent'; btn.style.padding=0; btn.style.cursor='pointer';
+      btn.appendChild(img);
+
+      var meta = document.createElement('div'); meta.className='meta';
+      var h3 = document.createElement('h3'); h3.textContent = it.title || 'Untitled'; meta.appendChild(h3);
+      var date = document.createElement('div'); date.className='date'; if(it.date){ date.textContent = it.date; meta.appendChild(date); }
+      if(it.blurb){ var p = document.createElement('p'); p.textContent = it.blurb; meta.appendChild(p); }
+
+      var file = it.file || it.audio || it.video || '';
+      var filename = file.split('/').pop();
+      var ext = extOf(filename);
+      var media = null;
+
+      if(isVideoExt(ext)){
+        media = document.createElement('video');
+        media.controls = true; media.preload = 'none'; media.setAttribute('playsinline', '');
+        media.src = normalizePath(file, 'video');
+        var posterSrc = normalizePath(it.image || '', 'images');
+        if(posterSrc) media.poster = posterSrc;
+        media.style.maxWidth = '480px'; media.style.width='100%'; media.style.height='auto';
+      } else if(isAudioExt(ext)){
+        media = document.createElement('audio');
+        media.controls = true; media.preload = 'none';
+        media.src = normalizePath(file, 'audio');
+        media.style.maxWidth = '480px'; media.style.width='100%'; media.style.height='auto';
+      }
+
+      if(media){
+        var mediaRow = document.createElement('div'); mediaRow.className='audio-row'; mediaRow.appendChild(media); meta.appendChild(mediaRow);
+
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          try{
+            if(!media.src){ console.warn('No media src for item', it); return; }
+            if(media.paused){ if(currentMedia && currentMedia!==media){ try{ currentMedia.pause(); }catch(e){} } media.play(); }
+            else { media.pause(); }
+          }catch(err){ console.error('Media toggle error', err); }
+        });
+
+        btn.addEventListener('keydown', function(e){ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); btn.click(); } });
+
+        media.addEventListener('play', function(){ if(currentMedia && currentMedia!==media){ try{ currentMedia.pause(); }catch(e){} } currentMedia = media; });
+        media.addEventListener('ended', function(){ if(currentMedia===media) currentMedia = null; });
+
+        media.addEventListener('error', function(ev){ console.error('Media failed to load/play:', media.src, ev); });
+      } else {
+        btn.addEventListener('click', function(){ if(img.src) window.open(img.src, '_blank'); });
+      }
+
+      thumb.appendChild(btn);
+      el.appendChild(thumb);
+      el.appendChild(meta);
+      nieuwList.appendChild(el);
+    });
+  }
+})();      var thumb = document.createElement('div'); thumb.className='thumb';
       var img = document.createElement('img'); img.alt = it.title || '';
       img.src = normalizePath(it.image || '', 'images');
 
