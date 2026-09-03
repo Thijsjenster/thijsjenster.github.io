@@ -72,10 +72,19 @@
       var ext = (filename.split('.').pop() || '').toLowerCase();
       var media = null;
 
-      if(isVideoExt(ext)){
-        media = document.createElement('video');
-        media.controls = true; media.preload='none'; media.width = 480; media.style.maxWidth='100%';
-        media.src = normalizePath(file, 'video');
+      if (isVideoExt(ext)) {
+  media = document.createElement('video');
+  media.controls = true;
+  media.preload = 'none';
+  media.setAttribute('playsinline', '');      // allow inline playback on mobile
+  media.src = normalizePath(file, 'video');   // resolves assets/video/<file> if needed
+  // set poster (thumbnail) from the item image, if available:
+  var posterSrc = normalizePath(it.image || '', 'images');
+  if (posterSrc) media.poster = posterSrc;
+  media.style.maxWidth = '480px';  // sensible default, change to fit your design
+  media.style.width = '100%';
+  media.style.height = 'auto';
+ }
       } else if(isAudioExt(ext)){
         media = document.createElement('audio');
         media.controls = true; media.preload='none';
