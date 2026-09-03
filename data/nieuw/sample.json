@@ -3,7 +3,6 @@
     "slug":"voorbeeld-demo",
     "date":"2026-09-02",
     "title":"Voorbeeld Demo",
-    "blurb":"Een korte toelichting over deze demo. Vervang of verwijder dit voorbeeld in data/nieuw/nieuw.json.",
     "image":"assets/images/sample-thumb.jpg",
     "audio":"assets/audio/sample-demo.mp3"
   }
