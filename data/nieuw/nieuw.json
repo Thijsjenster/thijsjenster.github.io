@@ -2,64 +2,64 @@
   {
     "slug": "2025-08-15-outfile",
     "date": "2025-08-15",
-    "title": "outfile",
+    "title": "Outfile",
     "image": "assets/images/2025_08_15_outfile.JPG",
     "file": "assets/audio/2025_08_15_outfile.wav"
   },
   {
     "slug": "2025-10-24-stemmen-voor-je-geld",
     "date": "2025-10-24",
-    "title": "stemmen voor je geld",
+    "title": "Stemmen voor je geld",
     "image": "assets/images/2025_10_24_stemmen-voor-je-geld.jpeg",
     "file": "assets/audio/2025_10_24_stemmen-voor-je-geld.wav"
   },
   {
     "slug": "2026-05-01-demo",
     "date": "2026-05-01",
-    "title": "demo 2026-05-01",
+    "title": "Demo 2026-05-01",
     "image": "assets/images/2026_05_01.jpeg",
     "file": "assets/audio/2026_05_01.wav"
   },
   {
     "slug": "2026-05-04-afstand",
     "date": "2026-05-04",
-    "title": "afstand",
+    "title": "Afstand",
     "image": "assets/images/2026_05_04_afstand.jpeg",
     "file": "assets/audio/2026_05_04_afstand.wav"
   },
   {
     "slug": "2026-08-23-steel",
     "date": "2026-08-23",
-    "title": "steel",
+    "title": "Steel",
     "image": "assets/images/2026_08_23_steel.JPG",
     "file": "assets/audio/2026_08_23_steel.mp3"
   },
   {
     "slug": "2024-03-15-pianovid",
     "date": "2024-03-15",
-    "title": "pianovid",
-    "image": "assets/video/2024_03_15_pianovid.mov",
+    "title": "Pianovid",
+    "image": "assets/images/ThijsHeadshots-v1-4.jpg",
     "file": "assets/video/2024_03_15_pianovid.mov"
   },
   {
     "slug": "2024-03-20-delift",
     "date": "2024-03-20",
-    "title": "de lift",
-    "image": "assets/video/2024_03_20_delift.mov",
+    "title": "De Lift",
+    "image": "assets/images/ThijsHeadshots-v1-4.jpg",
     "file": "assets/video/2024_03_20_delift.mov"
   },
   {
     "slug": "2024-04-30-meeuwen",
     "date": "2024-04-30",
-    "title": "meeuwen",
-    "image": "assets/video/2024_04_30_meeuwen.mov",
+    "title": "Meeuwen",
+    "image": "assets/images/2026_04_30.JPG",
     "file": "assets/video/2024_04_30_meeuwen.mov"
   },
   {
     "slug": "2024-09-30-oudegewoonteakust",
     "date": "2024-09-30",
-    "title": "oude gewoonte (akust)",
-    "image": "assets/video/2024_09_30_oudegewoonteakust.mov",
+    "title": "Oude Gewoonte (akust)",
+    "image": "assets/images/ThijsHeadshots-v1-4.jpg",
     "file": "assets/video/2024_09_30_oudegewoonteakust.mov"
   }
 ]
