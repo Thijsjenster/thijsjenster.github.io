@@ -1,21 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eigen Beheer - Thijs Jenster</title>
+  <title>Releases in Eigen Beheer - Thijs Jenster</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main>
-    <h2>Eigen Beheer</h2>
-    <p>[Short artist introduction will go here]</p>
-    <p>
-      <a href="https://spotify.com/thijsjenster" target="_blank">Listen on Spotify</a><br>
-      <a href="https://music.apple.com/thijsjenster" target="_blank">Listen on Apple Music</a>
-    </p>
-    <p>[Placeholder for atmospheric photos]</p>
+  <main class="container">
+    <header class="inner">
+      <h1 class="brand">thijs jenster</h1>
+    </header>
+
+    <section class="section">
+      <h2>Releases in Eigen Beheer</h2>
+      <p>Onder staan voorbeelden van hoe je Bandcamp-releases kunt insluiten. Voor elke release kun je hier:
+        - een coverafbeelding tonen,
+        - een korte omschrijving plaatsen,
+        - en de Bandcamp-embed toevoegen zodat bezoekers direct kunnen luisteren of kopen.
+      </p>
+
+      <div class="cards">
+        <!-- Example release card with Bandcamp embed (replace the iframe src with your album/track embed code) -->
+        <article class="card">
+          <img src="assets/images/2026_08_23_steel.JPG" alt="Voorbeeld album cover">
+          <h3>Voorbeeld Album</h3>
+          <p>Een korte omschrijving van het project of album. Voeg hier het verhaal of credits toe.</p>
+
+          <!-- Bandcamp embed placeholder: replace album=0000000000 with the album ID from Bandcamp Embed code -->
+          <div class="bandcamp-embed">
+            <!-- Replace the <iframe> below with the embed code Bandcamp provides for your album -->
+            <iframe style="border: 0; width: 350px; height: 472px;" src="https://bandcamp.com/EmbeddedPlayer/album=0000000000/size=large/bgcol=ffffff/linkcol=000000/tracklist=true/artwork=small/transparent=true/" seamless>
+              <a href="https://eigenbeheer.bandcamp.com">Bekijk op Bandcamp</a>
+            </iframe>
+          </div>
+
+          <p><a href="https://eigenbeheer.bandcamp.com" target="_blank" rel="noopener">Open op Bandcamp</a></p>
+        </article>
+      </div>
+
+      <h3>Hoe embed je een Bandcamp-release</h3>
+      <ol>
+        <li>Ga naar je album of track op Bandcamp.</li>
+        <li>Klik op &quot;Share / Embed&quot; en kies &quot;Embed&quot;.</li>
+        <li>Kopieer de iframe code die Bandcamp geeft en plak die in de release kaart in <code>eigen.html</code> of in je data-bestand als <code>embed</code> veld.</li>
+        <li>Als je liever via de GitHub-webeditor werkt: upload je cover naar <code>assets/images/</code>, voeg een object toe aan <code>data/releases.json</code> met velden voor title, description en embed (iframe), en commit — de site zal de embed tonen.</li>
+      </ol>
+
+    </section>
   </main>
-  <footer><a href="#">Contact</a></footer>
+
+  <footer class="site-footer inner">
+    <small>© <span id="year"></span> Thijs Jenster</small>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
