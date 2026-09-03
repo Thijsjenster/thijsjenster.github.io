@@ -56,6 +56,16 @@ body{
 .audio-row video, .audio-row audio { max-width:480px; width:100%; height:auto; display:block; }
 audio{width:100%}
 
+/* Release cover: half-width on desktop, full width on small screens */
+#releases-list .card img {
+  width: 50%;
+  height: auto;
+  display: block;
+  margin-bottom: 8px;
+}
+@media (max-width:800px){
+  #releases-list .card img { width: 100%; }
+}
 /* Footer contact */
 .site-footer{border-top:1px solid #eee;padding:18px 0;margin-top:40px}
 #contact-footer p{margin:6px 0}
