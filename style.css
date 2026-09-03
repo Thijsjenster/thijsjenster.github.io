@@ -64,7 +64,7 @@ audio{width:100%}
   margin-bottom: 8px;
 }
 @media (max-width:800px){
-  #releases-list .card img { width: 100%; }
+  #releases-list .card img { width: 50%; }
 }
 /* Footer contact */
 .site-footer{border-top:1px solid #eee;padding:18px 0;margin-top:40px}
