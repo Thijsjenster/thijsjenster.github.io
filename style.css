@@ -9,7 +9,7 @@ body{
   margin:0;
   font-family: "Times New Roman", Times, serif;
   color:#111;
-  background:#fff;
+  background:#f8f8ff;
   -webkit-font-smoothing:antialiased;
 }
 .inner{max-width:var(--max-width);margin:0 auto;padding:0 20px}
