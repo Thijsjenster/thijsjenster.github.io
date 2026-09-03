@@ -18,7 +18,7 @@ body{
 .container{max-width:var(--max-width);margin:20px auto;padding:0 20px}
 .hero{display:flex;gap:30px;align-items:center;margin-bottom:30px}
 .hero-left{flex:1}
-.hero-left img{width:30%;height:auto;display:block;object-fit:cover;border-radius:6px}
+.hero-left img{width:50%;height:auto;display:block;object-fit:cover;border-radius:6px}
 .hero-right{width:320px}
 .hero-nav{display:flex;flex-direction:column;gap:12px}
 .hero-nav a{color:#000;text-decoration:none;font-size:20px}
@@ -42,7 +42,7 @@ audio{width:100%}
 .contact p{margin:6px 0}
 @media (max-width:800px){
   .hero{flex-direction:column}
-  .hero-right{width:30%}
+  .hero-right{width:50%}
   .item{flex-direction:column}
   .item .thumb{width:100%}
   .item .thumb img{width:100%;height:auto}
