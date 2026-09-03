@@ -1,17 +1,5 @@
 [
   {
-    "slug": "voorbeeld-album-2026",
-    "title": "Voorbeeld Album",
-    "year": "2026",
-    "image": "assets/images/voorbeeld-album-2026.jpg",
-    "tracklist": [
-      { "track": 1, "title": "Intro", "file": "assets/audio/voorbeeld-intro.mp3", "length": "1:12" },
-      { "track": 2, "title": "Nummer Twee", "file": "assets/audio/voorbeeld-2.mp3", "length": "3:05" }
-    ],
-    "credits": "Music & production by Thijs Jenster. Recorded at Studio X. Mastered by Y.",
-    "bandcamp": "https://eigenbeheer.bandcamp.com/album/voorbeeld-album"
-  },
-  {
     "slug": "de-tuin",
     "title": "De Tuin",
     "year": "2024",
@@ -26,5 +14,6 @@
       { "track": 7, "title": "woordeloos (weer)", "length": "1:28" }
     ],
     "credits": "joris jenster, thijs jenster"
+    "bandcamp": "https://eigenbeheer.bandcamp.com/album/de-tuin"
   }
 ]
