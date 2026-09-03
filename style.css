@@ -58,13 +58,54 @@ audio{width:100%}
 
 /* Release cover: half-width on desktop, full width on small screens */
 #releases-list .card img {
-  width: 50%;
+  width: 100%;
   height: auto;
   display: block;
   margin-bottom: 8px;
 }
 @media (max-width:800px){
   #releases-list .card img { width: 50%; }
+}
+
+/* Layout: cover left, text right for release cards */
+#releases-list .card {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+}
+
+/* Cover image sizing: left column */
+#releases-list .card img {
+  width: 40%;        /* left column width on desktop */
+  height: auto;
+  display: block;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+/* Textual content: right column */
+#releases-list .card .card-body {
+  flex: 1;
+  min-width: 0; /* allow overflow handling in flex */
+}
+
+/* Track list & length styling */
+.track-list { list-style: decimal; padding-left: 1.2em; font-style: italic; margin: 8px 0; }
+.track-list li { font-style: italic; margin: 6px 0; }
+.track-length { font-style: italic; margin-left: 8px; color: #333; }
+
+/* Smaller screens: stack vertically */
+@media (max-width: 800px) {
+  #releases-list .card {
+    flex-direction: column;
+  }
+  #releases-list .card img {
+    width: 100%;
+    margin-bottom: 8px;
+  }
 }
 /* Footer contact */
 .site-footer{border-top:1px solid #eee;padding:18px 0;margin-top:40px}
