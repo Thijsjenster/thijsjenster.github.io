@@ -64,7 +64,6 @@ audio{width:100%}
   box-shadow: 0 0px 0px rgba(0,0,0,0.06);
   border-radius:0px;
   padding:0px;
-  transition: transform .18s ease, box-shadow .18s ease;
   display:flex; flex-direction:column; align-items:center;
   cursor: default;
   position:relative;
