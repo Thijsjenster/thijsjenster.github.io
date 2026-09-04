@@ -57,7 +57,7 @@ body{
 audio{width:100%}
 
 /* Nieuw: compact "clipboard" style */
-.nieuw-clipboard { display:flex; flex-wrap:wrap; gap:18px; align-items:flex-start; padding:6px; }
+.nieuw-clipboard { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: start; padding: 6px; }
 .nieuw-card {
   width: 220px; /* card width */
   background:#f8f8ff;
