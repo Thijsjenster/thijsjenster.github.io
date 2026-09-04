@@ -24,7 +24,7 @@ body{
 /* HOME hero-only layout */
 .home .hero{display:flex;gap:12px;align-items:center;margin-bottom:20px}
 .home .hero-left{flex:0 0 33%}
-.home .hero-left img{width:100%;height:auto;display:block;object-fit:cover;border-radius:6px}
+.home .hero-left img{width:100%;height:auto;display:block;object-fit:cover;border-radius:3px}
 .home .hero-right{flex:0 0 auto;margin-left:6px}
 
 /* Make the nav links sit near the hero */
@@ -34,7 +34,7 @@ body{
 /* Generic hero (fallback) */
 .hero{display:flex;gap:30px;align-items:center;margin-bottom:30px}
 .hero-left{flex:1}
-.hero-left img{width:50%;height:auto;display:block;object-fit:cover;border-radius:6px}
+.hero-left img{width:50%;height:auto;display:block;object-fit:cover;border-radius:3px}
 .hero-right{width:320px}
 
 .hero-nav a:visited{color:#000}
@@ -43,12 +43,12 @@ body{
 .section{margin:40px 0}
 .section h2{font-size:20px;margin:0 0 12px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{border:1px solid #eee;padding:12px;border-radius:6px}
+.card{border:1px solid #eee;padding:12px;border-radius:3px}
 .card img{width:100%;height:auto;display:block;margin-bottom:8px}
 .list{display:flex;flex-direction:column;gap:18px}
 .item{display:flex;gap:12px;align-items:flex-start}
 .item .thumb{width:120px}
-.item .thumb img{width:120px;height:80px;object-fit:cover;border-radius:4px}
+.item .thumb img{width:120px;height:80px;object-fit:cover;border-radius:0px}
 .item .meta{flex:1}
 .item .meta h3{margin:0 0 6px;font-size:16px}
 .item .meta p{margin:0 0 8px;color:#444}
@@ -70,7 +70,7 @@ audio{width:100%}
   position:relative;
 }
 /* thumbnail area */
-.nieuw-thumb{ width:100%; height:140px; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative; border-radius:4px; background:linear-gradient(180deg,#fafafa,#fff); }
+.nieuw-thumb{ width:100%; height:140px; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative; border-radius:0px; background:linear-gradient(180deg,#fafafa,#fff); }
 .nieuw-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
 
 /* no-thumbnail fallback: circular play button */
