@@ -75,6 +75,11 @@ audio{width:100%}
 
 .nieuw-overlay svg{ width:34px; height:34px; color: #fff; }
 
+/* overlay play/pause icon in middle */
+.nieuw-overlay{
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); pointer-events:none; color:#f8f8ff;
+  display:flex; align-items:center; justify-content:center;
+}
 /* quick flash when no media */
 .nieuw-overlay.flash { animation: flash 300ms; }
 @keyframes flash { from{transform:translate(-50%,-50%) scale(1)} to{transform:translate(-50%,-50%) scale(1.08)} }
