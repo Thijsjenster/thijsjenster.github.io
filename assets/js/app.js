@@ -1,4 +1,4 @@
-// assets/js/app.js — builds the Nieuw timeline from data/nieuw/nieuw.json and wires audio/video playback (thumbnail toggles inline play/pause)
+// assets/js/app.js — builds the Nieuw timeline (compact thumbnails + hidden media, click to play/pause, clipboard layout)
 (function(){
   'use strict';
 
@@ -29,7 +29,7 @@
 
   function extOf(file){
     if(!file) return '';
-    var parts = file.split('.');
+    var parts = (file||'').split('.');
     return parts.length>1 ? parts.pop().toLowerCase() : '';
   }
   function isVideoExt(ext){ return ['mp4','mov','webm','m4v'].indexOf(ext)!==-1; }
@@ -46,6 +46,22 @@
 
   fetchData(0).then(function(items){ buildTimeline(items||[]); }).catch(function(){ console.warn('No nieuws data found at data/nieuw/*.json'); });
 
+  // small helper to create SVG play/pause symbol
+  function playIconSVG(){
+    var svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('viewBox','0 0 24 24');
+    svg.setAttribute('width','40'); svg.setAttribute('height','40');
+    svg.innerHTML = '<path fill=\"currentColor\" d=\"M8 5v14l11-7z\"></path>';
+    return svg;
+  }
+  function pauseIconSVG(){
+    var svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('viewBox','0 0 24 24');
+    svg.setAttribute('width','40'); svg.setAttribute('height','40');
+    svg.innerHTML = '<path fill=\"currentColor\" d=\"M6 19h4V5H6zm8-14v14h4V5z\"/>';
+    return svg;
+  }
+
   function buildTimeline(items){
     if(!Array.isArray(items)) return;
 
@@ -56,70 +72,120 @@
       return db - da;
     });
 
+    // clear old content & apply grid container class
+    nieuwList.innerHTML = '';
+    nieuwList.classList.add('nieuw-clipboard');
+
     var currentMedia = null;
+    var zBase = 10;
 
-    items.forEach(function(it){
-      var el = document.createElement('article'); el.className='item card';
+    items.forEach(function(it, idx){
+      // card wrapper
+      var card = document.createElement('article');
+      card.className = 'nieuw-card';
+      // random small rotation and offset for "scattered" look
+      var angle = (Math.random()*8) - 4; // -4deg..+4deg
+      var xOffset = (Math.random()*10) - 5; // -5..+5 px
+      var yOffset = (Math.random()*8) - 4;
+      card.style.transform = 'translate('+xOffset+'px,'+yOffset+'px) rotate('+angle+'deg)';
+      card.style.zIndex = zBase + (items.length - idx); // earlier items sit below later ones
 
-      var thumb = document.createElement('div'); thumb.className='thumb';
-      var img = document.createElement('img'); img.alt = it.title || '';
-      img.src = normalizePath(it.image || '', 'images');
+      // thumbnail area
+      var thumbWrap = document.createElement('div');
+      thumbWrap.className = 'nieuw-thumb';
+      var imgSrc = normalizePath(it.image || '', 'images');
+      var hasImg = !!(it.image && imgSrc);
+      if(hasImg){
+        var img = document.createElement('img');
+        img.alt = it.title || '';
+        img.src = imgSrc;
+        thumbWrap.appendChild(img);
+      } else {
+        // fallback: show a circular play button if no img
+        var btnOnly = document.createElement('div');
+        btnOnly.className = 'nieuw-no-thumb';
+        btnOnly.appendChild(playIconSVG());
+        thumbWrap.appendChild(btnOnly);
+      }
 
-      var btn = document.createElement('button'); btn.className='left-link';
-      btn.setAttribute('aria-label', it.title || 'Open item');
-      btn.style.border='none'; btn.style.background='transparent'; btn.style.padding=0; btn.style.cursor='pointer';
-      btn.appendChild(img);
+      // overlay play icon (always present)
+      var overlay = document.createElement('div');
+      overlay.className = 'nieuw-overlay';
+      overlay.appendChild(playIconSVG());
+      thumbWrap.appendChild(overlay);
 
-      var meta = document.createElement('div'); meta.className='meta';
-      var h3 = document.createElement('h3'); h3.textContent = it.title || 'Untitled'; meta.appendChild(h3);
-      var date = document.createElement('div'); date.className='date'; if(it.date){ date.textContent = it.date; meta.appendChild(date); }
-      if(it.blurb){ var p = document.createElement('p'); p.textContent = it.blurb; meta.appendChild(p); }
-
+      // hidden media element (no controls, not visible by default)
       var file = it.file || it.audio || it.video || '';
       var filename = file.split('/').pop();
       var ext = extOf(filename);
       var media = null;
-
       if(isVideoExt(ext)){
         media = document.createElement('video');
-        media.controls = true; media.preload = 'none'; media.setAttribute('playsinline', '');
+        media.preload = 'metadata';
         media.src = normalizePath(file, 'video');
-        var posterSrc = normalizePath(it.image || '', 'images');
-        if(posterSrc) media.poster = posterSrc;
-        media.style.maxWidth = '480px'; media.style.width='100%'; media.style.height='auto';
       } else if(isAudioExt(ext)){
         media = document.createElement('audio');
-        media.controls = true; media.preload = 'none';
+        media.preload = 'metadata';
         media.src = normalizePath(file, 'audio');
-        media.style.maxWidth = '480px'; media.style.width='100%'; media.style.height='auto';
+      }
+      if(media){
+        media.style.display = 'none'; // keep hidden; we control playback via click
+        media.setAttribute('aria-hidden','true');
+        card.appendChild(media);
       }
 
+      // title & date underneath
+      var info = document.createElement('div');
+      info.className = 'nieuw-info';
+      var h3 = document.createElement('h3'); h3.textContent = it.title || 'Untitled';
+      var date = document.createElement('div'); date.className='nieuw-date'; if(it.date) date.textContent = it.date;
+      info.appendChild(h3); info.appendChild(date);
+
+      // wire click: toggle play/pause
+      thumbWrap.addEventListener('click', function(e){
+        e.preventDefault();
+        if(!media){
+          // if no media, flash overlay briefly (or open image)
+          overlay.classList.add('flash');
+          setTimeout(()=>overlay.classList.remove('flash'), 300);
+          return;
+        }
+        try{
+          if(media.paused){
+            if(currentMedia && currentMedia !== media) try { currentMedia.pause(); } catch(e){}
+            media.play();
+          } else {
+            media.pause();
+          }
+        }catch(err){ console.error('Media toggle error', err); }
+      });
+
+      // update overlay icon when media plays/pauses
       if(media){
-        var mediaRow = document.createElement('div'); mediaRow.className='audio-row'; mediaRow.appendChild(media); meta.appendChild(mediaRow);
-
-        btn.addEventListener('click', function(e){
-          e.preventDefault();
-          try{
-            if(!media.src){ console.warn('No media src for item', it); return; }
-            if(media.paused){ if(currentMedia && currentMedia!==media){ try{ currentMedia.pause(); }catch(e){} } media.play(); }
-            else { media.pause(); }
-          }catch(err){ console.error('Media toggle error', err); }
+        media.addEventListener('play', function(){
+          currentMedia = media;
+          card.classList.add('playing');
+          overlay.innerHTML = '';
+          overlay.appendChild(pauseIconSVG());
         });
-
-        btn.addEventListener('keydown', function(e){ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); btn.click(); } });
-
-        media.addEventListener('play', function(){ if(currentMedia && currentMedia!==media){ try{ currentMedia.pause(); }catch(e){} } currentMedia = media; });
-        media.addEventListener('ended', function(){ if(currentMedia===media) currentMedia = null; });
-
+        media.addEventListener('pause', function(){
+          if(currentMedia===media) currentMedia = null;
+          card.classList.remove('playing');
+          overlay.innerHTML = '';
+          overlay.appendChild(playIconSVG());
+        });
+        media.addEventListener('ended', function(){ media.pause(); });
         media.addEventListener('error', function(ev){ console.error('Media failed to load/play:', media.src, ev); });
       } else {
-        btn.addEventListener('click', function(){ if(img.src) window.open(img.src, '_blank'); });
+        // no media: clicking the thumbnail opens the image in a new tab (if image exists)
+        if(hasImg){
+          thumbWrap.addEventListener('click', function(){ window.open(imgSrc, '_blank'); });
+        }
       }
 
-      thumb.appendChild(btn);
-      el.appendChild(thumb);
-      el.appendChild(meta);
-      nieuwList.appendChild(el);
+      card.appendChild(thumbWrap);
+      card.appendChild(info);
+      nieuwList.appendChild(card);
     });
   }
 })();
