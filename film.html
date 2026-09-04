@@ -1,22 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Film & Documentary - Thijs Jenster</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Film - Thijs Jenster</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main>
-    <h2>Film & Documentary</h2>
-    <ul>
-      <li><a href="https://vimeo.com/example1" target="_blank">“Binnenwereld” – Short Film</a></li>
-      <li><a href="https://vimeo.com/example2" target="_blank">“Silent Water” – Documentary</a></li>
-      <li><a href="https://vimeo.com/example3" target="_blank">“Invisible Lines” – Short Film</a></li>
-      <li><a href="https://vimeo.com/example4" target="_blank">“Voices of Dust” – Experimental Film</a></li>
-    </ul>
-    <p><a href="https://soundcloud.com/thijsjenster/sets/filmworks" target="_blank">Listen on SoundCloud</a></p>
+  <header class="site-header">
+    <div class="inner">
+      <h1 class="brand"><a href="/">thijs jenster</a></h1>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/nieuw.html">Nieuw</a>
+        <a href="/eigen.html">Releases</a>
+        <a href="/film.html">Film</a>
+        <a href="/overig.html">Overig</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2>Film</h2>
+
+      <div class="cards">
+        <!-- Example card: replace with real items -->
+        <article class="card">
+          <img src="assets/images/film-example.jpg" alt="Binnenwereld poster">
+          <div class="card-body">
+            <h3>“Binnenwereld” – Short Film</h3>
+            <p>Director: ... • Year: 2022</p>
+            <p><a href="https://vimeo.com/example1" target="_blank" rel="noopener">Watch on Vimeo</a></p>
+            <p>Music & credits: Thijs Jenster</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="assets/images/film-example-2.jpg" alt="Silent Water poster">
+          <div class="card-body">
+            <h3>“Silent Water” – Documentary</h3>
+            <p>Director: ... • Year: 2020</p>
+            <p><a href="https://vimeo.com/example2" target="_blank" rel="noopener">Watch on Vimeo</a></p>
+            <p>Music & credits: Thijs Jenster</p>
+          </div>
+        </article>
+      </div>
+
+    </section>
   </main>
-  <footer><a href="#">Contact</a></footer>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <div id="contact-footer">
+        <p>Email: <a href="mailto:Thijsjenster.music@outlook.com">Thijsjenster.music@outlook.com</a></p>
+        <p>Bandcamp: <a href="https://eigenbeheer.bandcamp.com" target="_blank" rel="noopener">eigenbeheer.bandcamp.com</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/eigenbeheer/" target="_blank" rel="noopener">@eigenbeheer</a></p>
+      </div>
+      <small>© <span id="year"></span> Thijs Jenster</small>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
