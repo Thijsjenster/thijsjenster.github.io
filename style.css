@@ -59,7 +59,7 @@ audio{width:100%}
 /* Nieuw: compact "clipboard" style */
 .nieuw-clipboard { display:flex; flex-wrap:wrap; gap:18px; align-items:flex-start; padding:6px; }
 .nieuw-card {
-  width: 220px; /* card width */
+  width: 50px; /* card width */
   background:#fff;
   box-shadow: 0 6px 14px rgba(0,0,0,0.06);
   border-radius:6px;
