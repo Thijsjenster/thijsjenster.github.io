@@ -6,16 +6,16 @@
 *{box-sizing:border-box}
 html,body{height:50%;}
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Helvetica Neue:wght@200;300;400;500;600;700&display=swap');
 
 body {
-  font-family: "Inter Light", "Helvetica Neue", Arial, sans-serif;
-  background: #f0efe8;
+  font-family: "Helvetica new display light", "Helvetica Neue", Arial, sans-serif;
+  background: #f6f6f5;
 }
 
 /* Keep the cards in step with the page background */
 .nieuw-card {
-  background: #f0efe8;
+  background: #f6f6f5;
 }
   -webkit-font-smoothing:antialiased;
 }
