@@ -6,8 +6,17 @@
 *{box-sizing:border-box}
 html,body{height:50%;}
 
+@font-face {
+  font-family: "Helvetica Now Display";
+  src: url("assets/fonts/HelveticaNowDisplayLight.otf") format("opentype");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
 body {
-  font-family: "Helvetica new display light", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Helvetica Now Display", Arial, sans-serif;
+  font-weight: 300;
   background: #f6f6f5;
 }
 
