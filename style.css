@@ -5,11 +5,18 @@
 }
 *{box-sizing:border-box}
 html,body{height:50%;}
-body{
-  margin:0;
-  font-family: "Helvetica now display light", Arial, sans-serif;
-  color:#111;
-  background:#f8f8ff;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+/* Keep the cards in step with the page background */
+.nieuw-card {
+  background: #f5f5f5;
+}
   -webkit-font-smoothing:antialiased;
 }
 .inner{max-width:var(--max-width);margin:0 auto;padding:0 20px}
