@@ -14,18 +14,19 @@ html,body{height:50%;}
   font-display: swap;
 }
 
-body {
-  font-family: "Helvetica Now Display", Arial, sans-serif;
-  font-weight: 300;
-  background: #f6f6f5;
+html, body {
+  height: 100%;
 }
 
-/* Keep the cards in step with the page background */
-.nieuw-card {
+body {
+  margin: 0;
+  font-family: "Helvetica Now Display", Arial, sans-serif;
+  font-weight: 300;
+  color: #111;
   background: #f6f6f5;
+  -webkit-font-smoothing: antialiased;
 }
-  -webkit-font-smoothing:antialiased;
-}
+
 .inner{max-width:var(--max-width);margin:0 auto;padding:0 20px}
 .site-header{padding:20px 0}
 .site-header .inner{display:flex;align-items:center;justify-content:space-between}
