@@ -58,7 +58,7 @@ body {
 .section{margin:40px 0}
 .section h2{font-size:20px;margin:0 0 12px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{border:1px solid #eee;padding:12px;border-radius:3px}
+.card{border:0px solid #eee;padding:12px;border-radius:3px}
 .card img{width:100%;height:auto;display:block;margin-bottom:8px}
 .list{display:flex;flex-direction:column;gap:18px}
 .item{display:flex;gap:12px;align-items:flex-start}
