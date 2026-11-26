@@ -132,7 +132,7 @@ audio{width:100%}
   gap: 18px;
   align-items: flex-start;
   padding: 12px;
-  border: 1px solid #eee;
+  border: 0px solid #eee;
   border-radius: 0px;
 }
 
@@ -167,7 +167,7 @@ audio{width:100%}
   }
 }
 /* Footer contact */
-.site-footer{border-top:1px solid #eee;padding:18px 0;margin-top:40px}
+.site-footer{border-top:0px solid #eee;padding:18px 0;margin-top:40px}
 #contact-footer p{margin:6px 0}
 
 /* Hover italics for nav links */
@@ -216,7 +216,7 @@ a:focus-visible {
   align-items: flex-start;
   gap: 18px;
   padding: 12px;
-  border: 1px solid #eee;
+  border: 0px solid #eee;
 }
 
 .media-card > img {
