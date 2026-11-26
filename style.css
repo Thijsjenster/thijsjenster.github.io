@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap');
+
 /* style.css — Minimal Times New Roman layout and responsive hero */
 :root{
   --accent:#111;
@@ -20,10 +22,10 @@ html, body {
 
 body {
   margin: 0;
-  font-family: "Helvetica Now Display", Arial, sans-serif;
-  font-weight: 300;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 14px;
   color: #111;
-  background: #f6f6f5;
+  background: #f8f8ff;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -181,4 +183,113 @@ audio{width:100%}
   .item{flex-direction:column}
   .item .thumb{width:100%}
   .item .thumb img{width:100%;height:auto}
+}
+
+a:link,
+a:visited {
+  color: #111;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  color: #777;
+  text-decoration: none;
+  font-style: italic;
+}
+
+/* Meer ruimte rond titel en navigatie op de inhoudspagina's */
+.content-page .site-header .inner {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+/* Film- en overig-items: afbeelding naast de tekst */
+.media-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.media-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 12px;
+  border: 1px solid #eee;
+}
+
+.media-card > img {
+  display: block;
+  width: 240px;
+  max-width: 40%;
+  height: auto;
+  object-fit: cover;
+}
+
+.media-card .card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Dump: eenvoudige lijst zonder foto's of omlijsting */
+.dump-list {
+  gap: 14px;
+}
+
+.dump-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.dump-play {
+  flex: 0 0 20px;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.dump-play:disabled {
+  cursor: default;
+}
+
+.dump-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.dump-title {
+  font-size: 15px;
+}
+
+.nieuw-date {
+  color: #666;
+  font-size: 13px;
+}
+
+@media (max-width: 800px) {
+  .content-page .site-header .inner {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    gap: 10px 16px;
+  }
+
+  .media-card {
+    flex-direction: column;
+  }
+
+  .media-card > img {
+    width: 100%;
+    max-width: none;
+  }
 }
