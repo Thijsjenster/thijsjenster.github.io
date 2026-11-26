@@ -11,12 +11,6 @@ body {
   min-height: 100%;
 }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
 @font-face {
   font-family: "Helvetica Now Display";
   src: url("assets/fonts/HelveticaNowDisplayLight.otf") format("opentype");
@@ -176,7 +170,7 @@ audio{width:100%}
   }
 }
 /* Footer contact */
-.site-footer{border-top:0px solid #eee;padding:18px 0;margin-top: auto;}
+.site-footer{border-top:0px solid #eee;padding:18px 0;}
 #contact-footer p{margin:6px 0}
 
 /* Hover italics for nav links */
@@ -308,4 +302,19 @@ a:focus-visible {
   flex-direction: column;
   gap: 24px;
   margin-top: 32px;
+}
+
+/* Footer blijft in beeld; ruimte onderaan voorkomt dat inhoud erachter valt */
+body {
+  padding-bottom: 120px;
+}
+
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  margin-top: 0;
+  background: #f8f8ff;
 }
